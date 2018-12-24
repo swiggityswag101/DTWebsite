@@ -1,0 +1,28 @@
+<div>
+  <span routerLink="/home">Home</span>
+  <span routerLink="/pricing">Pricing</span>
+  <span routerLink="/probability-calculator">Calculator</span>
+  <span (click)="openModal(content)">Log In</span>
+  <span routerLink="/create">Create Account</span>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+     <h4 class="modal-title">Log In</h4>
+     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+       <span aria-hidden="true">&times;</span>
+     </button>
+   </div>
+   <div class="modal-body">
+     <div form [formGroup]="loginFormGroup">
+      <label>Username</label>
+        <input formControlName="username" type="text">
+      <label>Password</label>
+        <input formControlName="password" type="password">
+    </div>
+    <button type="submit" [disabled]="loginFormGroup.invalid" (click)="submitForm()">Submit</button>
+   </div>
+   <div class="modal-footer">
+     <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+   </div>
+ </ng-template>

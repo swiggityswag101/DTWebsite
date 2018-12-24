@@ -1,0 +1,21 @@
+<form [formGroup]="probabilityFormGroup" (ngSubmit)="submit()">
+  <div>
+    <input type="number" formControlName="popSize">
+    Population Size
+  </div>  
+  <div>
+    <input type="number" formControlName="successSize">
+    Success Size
+  </div>
+  <div>
+    <input type="number" formControlName="numOfTries">
+    Number of Tries
+  </div>
+  <div>
+    <input type="number" formControlName="numOfSuccess">
+    Number of Success
+  </div>
+  <div>
+   <button type="submit" [disabled]="!probabilityFormGroup.valid">Calculate!</button>
+  </div>
+</form>
